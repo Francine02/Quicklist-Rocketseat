@@ -1,0 +1,25 @@
+@media (max-width: 767.98px) {
+  main {
+    padding: 0 2rem;
+
+    #logo {
+      display: none;
+    }
+
+    section {
+      width: 100%;
+    }
+  }
+
+  #div-add-item {
+    flex-direction: column;
+  }
+
+  #button-add-item {
+    width: 100%;
+  }
+
+  ul {
+    max-height: 30rem;
+  }
+}
