@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quicklist</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
     <link rel="icon" href="./assets/logo-small.png">
     <script src="./script.js" defer></script>
 </head>
 
 <body>
     <main>
-        <img src="./assets/logo.png" alt="logo quicklist" />
+        <img id="logo" src="./assets/logo.png" alt="logo quicklist" />
 
         <section>
             <button id="button-back">
@@ -42,6 +43,17 @@
                     </button>
                 </li>
             </ul>
+
+            <div id="notification-delete-item">
+                <div>
+                    <img id="image-warning" class="image" src="./assets/warning.png" alt="icone de atenção" />
+                    <p>O item foi removido da lista</p>
+                </div>
+
+                <button>
+                    <img class="image" src="./assets/close.png" alt="icone de fechar" />
+                </button>
+            </div>
         </section>
     </main>
 </body>
