@@ -27,6 +27,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand) var(--background-secondary);
 }
 
 body {
@@ -40,6 +42,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding-top: 1.5rem;
+  overflow-x: hidden;
 
   section {
     width: 39.1rem;
@@ -49,7 +52,8 @@ main {
 
 #button-add-item,
 #input-add-item,
-li {
+li,
+#notification-delete-item {
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
 }
@@ -61,6 +65,7 @@ li {
   font-weight: var(--weight-label);
   border: none;
   width: 14rem;
+  max-height: 2.75rem;
 
   &:hover {
     background-color: var(--color-brand-hover);
@@ -92,6 +97,28 @@ input {
   }
 }
 
+input[type='checkbox'] {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.4rem;
+
+  &:checked {
+    background-color: var(--color-brand);
+    border: none;
+
+    &::after {
+      content: '\2713';
+      padding: 0 0.3rem;
+      font-weight: 800;
+      font-size: 0.6rem;
+      color: white;
+    }
+  }
+}
+
 #div-add-item {
   display: flex;
   align-items: center;
@@ -109,33 +136,63 @@ h1 {
   cursor: not-allowed;
 }
 
-li {
+li,
+#notification-delete-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem;
-  background-color: white;
-
-  margin-bottom: 0.75rem;
-
-  &:first-child {
-    margin-top: 2.5rem;
-  }
 
   div {
     display: flex;
     gap: 0.5rem;
   }
 
-  p {
-    font-size: var(--size-label-paragraph);
-    color: var(--content-secondary);
-    font-weight: var(--weight-link-paragraph);
-  }
-
   button {
     border: none;
     background-color: inherit;
     cursor: pointer;
+
+    &:hover {
+      opacity: 80%;
+      transition: 200ms;
+    }
+  }
+
+  p {
+    font-size: var(--size-label-paragraph);
+    font-weight: var(--weight-link-paragraph);
+  }
+}
+
+ul {
+  max-height: 20rem;
+  overflow-y: auto;
+  margin-top: 2.5rem;
+  padding-right: 0.5rem;
+
+  li {
+    background-color: white;
+
+    margin-bottom: 0.75rem;
+
+    p {
+      color: var(--content-secondary);
+    }
+  }
+}
+
+#notification-delete-item {
+  background-color: var(--color-danger);
+  color: white;
+  margin-top: 2.25rem;
+
+  .image {
+    filter: invert(100%);
+  }
+
+  #image-warning {
+    width: 1.25rem;
+    height: 1.2rem;
   }
 }
