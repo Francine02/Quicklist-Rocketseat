@@ -77,6 +77,24 @@ function updateCheckedInStorage(id, checked) {
   localStorage.setItem('items', JSON.stringify(updatedItems));
 }
 
+function loadDefaultItems() {
+  const items = getItemsInStorage();
+
+  if (items.length === 0) {
+    const defaultItems = [
+      { id: 1, name: 'Pão de forma', checked: false },
+      { id: 2, name: 'Café preto', checked: true },
+      { id: 3, name: 'Suco de laranja', checked: false },
+      { id: 4, name: 'Bolacha', checked: false },
+    ];
+
+    localStorage.setItem('items', JSON.stringify(defaultItems));
+  }
+}
+
+loadDefaultItems();
+document.addEventListener('DOMContentLoaded', () => addItemsInPage());
+
 function addItemsInPage() {
   const items = getItemsInStorage();
   ul.innerHTML = '';
@@ -98,4 +116,5 @@ function addItemsInPage() {
   });
 }
 
+loadDefaultItems();
 document.addEventListener('DOMContentLoaded', () => addItemsInPage());
