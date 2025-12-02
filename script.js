@@ -92,9 +92,6 @@ function loadDefaultItems() {
   }
 }
 
-loadDefaultItems();
-document.addEventListener('DOMContentLoaded', () => addItemsInPage());
-
 function addItemsInPage() {
   const items = getItemsInStorage();
   ul.innerHTML = '';
